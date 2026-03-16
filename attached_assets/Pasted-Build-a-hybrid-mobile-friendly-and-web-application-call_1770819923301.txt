@@ -1,0 +1,273 @@
+Build a hybrid mobile-friendly and web application called Perfie — an AI-powered fragrance discovery platform with personalized recommendations, price comparison, wishlist, custom categories (MoodMix), and social login. Use modern full-stack architecture.
+
+This app will allow users to:
+
+Explore fragrance categories
+
+Get personalized AI recommendations via Aro AI Assistant
+
+Save favorites
+
+Compare prices across external vendors
+
+Create custom fragrance mood categories
+
+Manage user profiles (self & others)
+
+Tech Stack (Use these in the solution)
+
+Frontend:
+
+React (with Next.js for SSR & routing)
+
+Tailwind / Chakra UI for responsive, mobile-friendly UI
+
+Backend:
+
+Node.js with Express or Fastify
+
+RESTful API
+
+Database:
+
+PostgreSQL (preferred) OR MongoDB
+
+Use Prisma ORM (if PostgreSQL) or Mongoose (if MongoDB)
+
+Authentication:
+
+JWT
+
+OAuth: Google, Facebook, Instagram login
+
+AI Integration:
+
+Connect with an external LLM for Aro AI assistant (OpenAI API / similar)
+
+Pricing & Sites Data:
+
+Integrate scraping or partner API for real-time price comparison
+
+Deployment:
+
+Replit deployment + CI/CD
+
+App Modules & Requirements
+User Authentication
+
+Email & password signup
+
+Social login: Google, Facebook, Instagram
+
+OTP based phone login
+
+Guest mode exploration (no login required initially)
+
+API Endpoints
+
+POST /auth/register
+
+POST /auth/login
+
+POST /auth/oauth (Google, FB, IG)
+
+POST /auth/otp
+
+User Profile
+
+Users can:
+
+Create personal profile
+
+Enter: gender, liked/disliked fragrances, allergies, favorite brands
+
+Create profiles for others (gift recipients)
+
+API
+
+GET /profile/:userId
+
+POST /profile
+
+PATCH /profile/:userId
+
+Homepage
+
+Displays:
+
+Fragrance categories
+
+Aro AI assistant prompt at top
+
+MoodMix featured section at bottom
+
+UI Requirements
+
+Large tile UI for fragrance categories
+
+Aro AI input box
+
+Quick access mood categories
+
+Aro AI Chat Assistant
+
+Allow users to type natural language prompts like:
+
+“Recommend floral scents for summer nights under ₹5000”
+
+The system should provide personalized suggestions based on the user profile and AI understanding.
+
+API
+
+POST /ai/recommend
+
+Input: user profile + free-text prompt
+
+Output: list of recommended fragrances
+
+Fragrance Detail & Price Comparison
+
+When a user selects a fragrance:
+
+Show a detailed page
+
+List prices for that fragrance across multiple online stores (based on location)
+
+Real-time price updates
+
+“Buy Now” redirects users to vendor sites
+
+API
+
+GET /products/:productId
+
+GET /products/:productId/prices
+
+Wishlist
+
+Users can:
+
+Add fragrance to wishlist via heart icon
+
+View all wishlist items
+
+Navigate from wishlist item to price comparison
+
+API
+
+GET /wishlist/:userId
+
+POST /wishlist/:userId
+
+DELETE /wishlist/:userId/:productId
+
+MoodMix: Custom Categories
+
+Users can:
+
+Create custom fragrance categories by mood
+
+Add favorite fragrances
+
+Get periodic AI-added suggestions
+
+Remove items (with interaction question to improve AI)
+
+Move items between categories
+
+API
+
+GET /moodmix/:userId
+
+POST /moodmix/create
+
+PATCH /moodmix/:categoryId
+
+DELETE /moodmix/:categoryId/:productId
+
+Navigation & Screens
+
+✔ Welcome & Onboarding
+✔ Guest and Login/Signup
+✔ User Profile form
+✔ Home with categories + AI
+✔ Fragrance listing & detail
+✔ Price Comparison view
+✔ Wishlist page
+✔ MoodMix page & details
+
+Database Schema Suggestions
+
+Users
+
+id, name, email, phone, profile details
+
+Profiles
+
+userId, fragrance preferences, allergies
+
+Products
+
+id, name, description, images, category
+
+Prices
+
+productId, source, price, url
+
+Wishlist
+
+userId, productId
+
+MoodMixCategory
+
+id, userId, categoryName
+
+MoodMixItems
+
+categoryId, productId
+
+AI & LLM Integration
+
+Use OpenAI API (or similar) so that:
+
+Aro AI assistant responds conversationally
+
+Uses profile, mood categories, and context
+
+Implement end-points and frontend UI for chat interaction.
+
+Testing Requirements
+
+Unit Tests for frontend & backend
+
+Integration tests for API endpoints
+
+End-to-end tests for user flows
+
+Price comparison fetch tests
+
+Deployment & CI/CD
+
+Deploy backend API on Replit
+
+Deploy frontend on Replit / Vercel
+
+Automate:
+
+linting
+
+build
+
+test
+
+deploy
+
+Provide a README with setup & environment variable instructions
+
+Documentation
+
+Include generated:
+✅ API docs (Swagger / Postman)
+✅ DB schema diagrams
+✅ Frontend component hierarchy
+✅ Deployment steps

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Sans:opsz,wght@9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Luxury Gold & Black Palette */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+
+  /* Base Colors */
+  --background: 0 0% 99%;      /* Almost pure white #FCFCFC */
+  --foreground: 0 0% 10%;      /* Soft Black #1A1A1A */
+  
+  /* Primary - Gold */
+  --primary: 43 74% 49%;       /* Metallic Gold #D9B310 */
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary - Charcoal */
+  --secondary: 0 0% 13%;       /* Charcoal #212121 */
+  --secondary-foreground: 0 0% 98%;
+
+  /* Muted - Soft Greys */
+  --muted: 0 0% 96%;           /* Light Grey #F5F5F5 */
+  --muted-foreground: 0 0% 45%; /* Medium Grey #737373 */
+
+  /* Cards & Popovers */
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+
+  /* Functional */
+  --accent: 43 74% 95%;        /* Very light gold tint */
+  --accent-foreground: 43 74% 35%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 43 74% 49%;
+  --radius: 0.5rem;
+
+  /* Custom */
+  --gold-gradient: linear-gradient(135deg, hsl(43, 74%, 49%), hsl(43, 60%, 40%));
+}
+
+.dark {
+  /* Dark Mode - Deep Luxury */
+  --background: 0 0% 5%;       /* Deepest Black */
+  --foreground: 0 0% 95%;      /* Off White */
+
+  --primary: 43 74% 49%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 60%;
+
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 95%;
+
+  --accent: 43 30% 15%;
+  --accent-foreground: 43 74% 49%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 43 74% 49%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-panel {
+    @apply bg-white/80 dark:bg-black/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  .gold-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-500 dark:from-yellow-400 dark:to-yellow-200;
+  }
+  .luxury-shadow {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
